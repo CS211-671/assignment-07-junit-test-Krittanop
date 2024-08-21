@@ -31,7 +31,7 @@ public class UserList {
     public boolean changePassword(String username, String oldPassword, String newPassword) {
         User user = findUserByUsername(username);
         if (user == null) {return false;}
-        if (!user.getPassword().equals(oldPassword)) {return false;}
+        if (!user.validatePassword(oldPassword)) {return false;}
         user.setPassword(newPassword);
         return true;
     }

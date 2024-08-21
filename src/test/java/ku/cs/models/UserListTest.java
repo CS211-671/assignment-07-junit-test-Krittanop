@@ -41,22 +41,29 @@ class UserListTest {
     @DisplayName("User with correct password can login")
     public void testUserListShouldReturnObjectIfUsernameAndPasswordIsCorrect() {
         // TODO: add 3 users to UserList
-
+        UserList userList = new UserList();
+        userList.addUser("user1", "Helloworld123");
+        userList.addUser("user2", "passwordsoeasy");
+        userList.addUser("user3", "idkthepassword11");
         // TODO: call login() with correct username and password
-
+        User actual = userList.login("user3", "idkthepassword11");
+        User expected = userList.findUserByUsername("user3");
         // TODO: assert that User object is found
-        // assertEquals(expected, actual);
+         assertEquals(expected, actual);
     }
 
     @Test
     @DisplayName("User with incorrect password cannot login")
     public void testUserListShouldReturnNullIfUsernameAndPasswordIsIncorrect() {
         // TODO: add 3 users to UserList
-
+        UserList userList = new UserList();
+        userList.addUser("user1", "Helloworld123");
+        userList.addUser("user2", "passwordsoeasy");
+        userList.addUser("user3", "idkthepassword11");
         // TODO: call login() with incorrect username or incorrect password
-
+        User actual = userList.login("user3", "thisisnotthepassword");
         // TODO: assert that the method return null
-        // assertNull(actual);
+         assertNull(actual);
     }
 
 }
